@@ -4,8 +4,9 @@ from core import sys_resource
 import pathlib
 from . import schemas
 from datetime import datetime
+from . import auth
 
-file = APIRouter(tags=["file"])
+file = APIRouter(tags=["file"], dependencies=[Depends(auth.authenticate)])
 
 
 @file.get("{url_path:path}", response_class=FileResponse, summary="download")

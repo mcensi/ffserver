@@ -4,7 +4,9 @@ from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 import api
 # import core
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = FastAPI(title='FFServer API', description="""
     It's not safe at all. Use it on your home WLAN.

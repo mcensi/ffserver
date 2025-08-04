@@ -5,8 +5,9 @@ from core import sys_resource
 import pathlib
 from datetime import datetime
 from typing import Union, List
+from . import auth
 
-folder = APIRouter(tags=["folder"])
+folder = APIRouter(tags=["folder"], dependencies=[Depends(auth.authenticate)])
 
 LS = List[Union[schemas.sys_file, schemas.sys_folder]]
 
